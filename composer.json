@@ -2,14 +2,31 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*"
+        }
+    ],
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "filament/filament": "*",
+        "filament/forms": "*",
+        "filament/tables": "*",
+        "filament/support": "*",
+        "filament/spatie-laravel-media-library-plugin": "*",
+        "filament/spatie-laravel-settings-plugin": "*",
+        "filament/spatie-laravel-tags-plugin": "*",
+        "filament/spatie-laravel-translatable-plugin": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -17,7 +34,9 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "spatie/laravel-ignition": "^1.0",
+        "squizlabs/php_codesniffer": "^3.6",
+        "friendsofphp/php-cs-fixer": "^3.8"
     },
     "autoload": {
         "psr-4": {
