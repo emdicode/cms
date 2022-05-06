@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Shield\RoleResource\Pages;
+namespace BezhanSalleh\FilamentShield\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\Shield\RoleResource;
+use BezhanSalleh\FilamentShield\Resources\RoleResource;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -13,7 +13,7 @@ class CreateRole extends CreateRecord
 {
     protected static string $resource = RoleResource::class;
 
-    public Collection    $permissions;
+    public Collection $permissions;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {

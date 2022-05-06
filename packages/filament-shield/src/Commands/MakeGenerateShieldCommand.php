@@ -135,8 +135,8 @@ class MakeGenerateShieldCommand extends Command
                     'Resource' => $resource,
                     'Policy' => "{$resource}Policy.php" . (config('filament-shield.resources_generator_option') !== 'permissions' ? ' ✅' : ' ❌'),
                     'Permissions' => implode(',', collect(config('filament-shield.prefixes.resource'))->map(function ($permission, $key) use ($resource) {
-                            return $permission . '_' . Str::lower($resource);
-                        })->toArray()) . (config('filament-shield.resources_generator_option') !== 'policies' ? ' ✅' : ' ❌'),
+                        return $permission . '_' . Str::lower($resource);
+                    })->toArray()) . (config('filament-shield.resources_generator_option') !== 'policies' ? ' ✅' : ' ❌'),
                 ];
             })
         );

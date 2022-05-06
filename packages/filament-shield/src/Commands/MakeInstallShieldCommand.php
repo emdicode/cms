@@ -37,7 +37,7 @@ class MakeInstallShieldCommand extends Command
 
         $confirmed = $this->confirm('Do you wish to continue?', true);
 
-        if ($this->CheckIfAlreadyInstalled() && ! $this->option('fresh')) {
+        if ($this->checkIfAlreadyInstalled() && ! $this->option('fresh')) {
             $this->comment('Seems you have already installed the Core package(`spatie/laravel-permission`)!');
             $this->comment('You should run `shield:install --fresh` instead to refresh the Core package tables and setup shield.');
 
@@ -71,7 +71,7 @@ class MakeInstallShieldCommand extends Command
         return self::SUCCESS;
     }
 
-    protected function CheckIfAlreadyInstalled(): bool
+    protected function checkIfAlreadyInstalled(): bool
     {
         $count = $this->getTables()
                 ->filter(function ($table) {

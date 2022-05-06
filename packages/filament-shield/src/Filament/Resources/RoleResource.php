@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Shield;
+namespace BezhanSalleh\FilamentShield\Resources;
 
-use App\Filament\Resources\Shield\RoleResource\Pages;
+use BezhanSalleh\FilamentShield\Resources\RoleResource\Pages;
 use Closure;
 use Filament\Facades\Filament;
 use Filament\Forms;
@@ -80,7 +80,7 @@ class RoleResource extends Resource
                                         ]),
                                     ]),
                                 Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.pages'))
-                                    ->visible(fn (): bool => (bool) (config('filament-shield.entities.pages') && count(static::getPageEntities())) > 0 ? true : false)
+                                    ->visible(fn (): bool => (config('filament-shield.entities.pages') && count(static::getPageEntities())) > 0)
                                     ->reactive()
                                     ->schema([
                                         Forms\Components\Grid::make([
@@ -94,7 +94,7 @@ class RoleResource extends Resource
                                         ]),
                                     ]),
                                 Forms\Components\Tabs\Tab::make(__('filament-shield::filament-shield.widgets'))
-                                    ->visible(fn (): bool => (bool) (config('filament-shield.entities.widgets') && count(static::getWidgetEntities())) > 0 ? true : false)
+                                    ->visible(fn (): bool => (config('filament-shield.entities.widgets') && count(static::getWidgetEntities())) > 0)
                                     ->reactive()
                                     ->schema([
                                         Forms\Components\Grid::make([
@@ -116,7 +116,7 @@ class RoleResource extends Resource
                                             'sm' => 3,
                                             'lg' => 4,
                                         ])
-                                        ->schema(static::getCustomEntitiesPermisssionSchema())
+                                        ->schema(static::getCustomEntitiesPermissionSchema())
                                         ->columns([
                                             'sm' => 3,
                                             'lg' => 4,
@@ -165,7 +165,7 @@ class RoleResource extends Resource
         return [
             'index' => Pages\ListRoles::route('/'),
             'create' => Pages\CreateRole::route('/create'),
-            'settings' => Pages\ShieldSettings::route('/settings'),
+            //'settings' => Pages\ShieldSettings::route('/settings'),
             'view' => Pages\ViewRole::route('/{record}'),
             'edit' => Pages\EditRole::route('/{record}/edit'),
         ];
@@ -516,7 +516,7 @@ class RoleResource extends Resource
         return Permission::whereNotIn('name', $entitiesPermissions)->pluck('name');
     }
 
-    protected static function getCustomEntitiesPermisssionSchema(): ?array
+    protected static function getCustomEntitiesPermissionSchema(): ?array
     {
         return collect(static::getCustomEntities())->reduce(function ($customEntities, $customPermission) {
             $customEntities[] = Forms\Components\Grid::make()
