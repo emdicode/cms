@@ -26,7 +26,8 @@
         "filament/spatie-laravel-media-library-plugin": "*",
         "filament/spatie-laravel-settings-plugin": "*",
         "filament/spatie-laravel-tags-plugin": "*",
-        "filament/spatie-laravel-translatable-plugin": "*"
+        "filament/spatie-laravel-translatable-plugin": "*",
+        "bezhansalleh/filament-shield": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -56,7 +57,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
