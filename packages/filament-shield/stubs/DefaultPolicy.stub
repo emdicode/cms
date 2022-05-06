@@ -74,5 +74,4 @@ class {{ modelPolicy }}
     {
         return $user->can('{{ DeleteAny }}');
     }
-
 }

@@ -2,22 +2,23 @@
 
 namespace BezhanSalleh\FilamentShield;
 
-use BezhanSalleh\FilamentShield\Filament\Resources\RoleResource;
+use BezhanSalleh\FilamentShield\Resources\RoleResource;
 use Filament\PluginServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
 
 class FilamentShieldServiceProvider extends PluginServiceProvider
 {
-    protected function getResources(): array
-    {
-        return [
-            RoleResource::class,
-        ];
-    }
+    public static string $name = 'filament-shield';
+
+    protected array $resources = [
+        RoleResource::class,
+    ];
 
     public function configurePackage(Package $package): void
     {
+        parent::configurePackage($package);
+
         $package
             ->name('filament-shield')
             ->hasConfigFile()
@@ -28,6 +29,8 @@ class FilamentShieldServiceProvider extends PluginServiceProvider
 
     public function packageBooted(): void
     {
+        parent::packageBooted();
+
         if (config('filament-shield.register_role_policy')) {
             Gate::policy('Spatie\Permission\Models\Role', 'App\Policies\RolePolicy');
         }
