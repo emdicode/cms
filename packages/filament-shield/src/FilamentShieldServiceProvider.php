@@ -2,7 +2,6 @@
 
 namespace BezhanSalleh\FilamentShield;
 
-use BezhanSalleh\FilamentShield\Resources\RoleResource;
 use Filament\PluginServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Spatie\LaravelPackageTools\Package;
@@ -12,7 +11,11 @@ class FilamentShieldServiceProvider extends PluginServiceProvider
     public static string $name = 'filament-shield';
 
     protected array $resources = [
-        RoleResource::class,
+        Resources\RoleResource::class,
+    ];
+
+    protected array $pages = [
+        Pages\UserProfile::class,
     ];
 
     public function configurePackage(Package $package): void

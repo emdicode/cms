@@ -89,6 +89,31 @@ return [
     'labels.exclude.widgets.placeholder' => 'Select widgets ...',
 
     /**
+     * Users
+     */
+    'labels.users.id' => 'ID',
+    'labels.users.label' => 'User',
+    'labels.users.labels' => 'Users',
+    'labels.users.name' => 'Name',
+    'labels.users.email' => 'Email',
+    'labels.users.password' => 'Password',
+    'labels.users.password_confirm' => 'Confirm Password',
+    'labels.users.password_new' => 'New Password',
+    'labels.users.password_current' => 'Current Password',
+    'labels.users.email_verified_at' => 'Email Verified',
+    'labels.users.created_at' => 'Created At',
+    'labels.users.updated_at' => 'Updated At',
+    'labels.users.verified' => 'Verified',
+    'labels.users.unverified' => 'Unverified',
+    'labels.users.roles' => 'Roles',
+    'labels.users.title' => [
+        'create' => 'Create User',
+        'edit' => 'Edit User',
+        'list' => 'Users',
+        'home' => 'Users',
+    ],
+
+    /**
      * Messages
      */
     'forbidden' => 'You do not have permission to access',
